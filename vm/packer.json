@@ -29,6 +29,13 @@
           "source": "{{template_dir}}/mnt",
           "destination": "/tmp/mnt",
           "pause_before": "5s"
+      },
+      {
+        "type": "shell",
+        "inline": [
+            "yum -y install vagrant"
+        ],
+        "pause_before": "5s"
       }
   ]
 }

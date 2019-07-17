@@ -64,9 +64,10 @@ resource "aws_instance" "instance" {
   ami           = "${data.aws_ami.aws_ebs.id}"
   instance_type = "t2.micro"
   associate_public_ip_address = true
+  # Set default and my own group.
   # Security group for access to my computer ip.
   # Need to update this in AWS console if ip changes
-  vpc_security_group_ids = ["sg-0ee5850b39c05e40b"]
+  vpc_security_group_ids = ["sg-b5ee5fdd","sg-0ee5850b39c05e40b"]
   tags = {
     Name = "Vagrant Instance"
   }
