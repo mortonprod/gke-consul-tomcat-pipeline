@@ -52,16 +52,17 @@ provider "aws" {
   region = "eu-west-2"
 }
 
-data "aws_ami" "aws_ebs" {
-  most_recent = true
-  owners           = ["self"]
-  filter {
-    name   = "name"
-    values = ["amazon-ebs-vagrant-kubernetes-*"]
-  }
-}
+# data "aws_ami" "aws_ebs" {
+#   most_recent = true
+#   owners           = ["self"]
+#   filter {
+#     name   = "name"
+#     values = ["amazon-ebs-vagrant-kubernetes-*"]
+#   }
+# }
 resource "aws_instance" "instance" {
-  ami           = "${data.aws_ami.aws_ebs.id}"
+  # ami           = "${data.aws_ami.aws_ebs.id}"
+  ami = "ami-ea4ba68d"
   instance_type = "t2.micro"
   associate_public_ip_address = true
   # Set default and my own group.
