@@ -1,9 +1,12 @@
 The branch will deploy the kubernetes to a small dev stack. 
 
+Need to make ssh key to attach to instance.
 It spinup a single EC2 instance and then uses vagrant to spin up multiple machines within it.
 This is done wit ansible
 
 # Packer
+
+Consul and npm install example from shell.
 
 ```json
 [
@@ -16,6 +19,11 @@ This is done wit ansible
               "/tmp/scripts/install-consul/install-consul --version {{user `consul_version`}}"
           ],
           "pause_before": "5s"
+      },
+            {
+          "type": "file",
+          "source": "{{template_dir}}/mnt",
+          "destination": "/tmp/mnt"
       },
       {
           "type": "shell",

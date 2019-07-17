@@ -5,7 +5,7 @@
       "region": "eu-west-2",
       "consul_version": "1.0.0",
       "ami_west_1": "",
-      "ami_west_2": "ami-6d263d09"
+      "ami_west_2": "ami-ea4ba68d"
 
   },
   "builders": [
@@ -16,8 +16,8 @@
           "region": "{{user `region`}}",
           "source_ami": "{{user `ami_west_2`}}",
           "instance_type": "t2.micro",
-          "ssh_username": "ec2-user",
-          "ami_name": "amazon-ebs-vagrant-kubernetes-{{timestamp}}",
+          "ssh_username": "ubuntu",
+          "ami_name": "ubuntu-ebs-vagrant-kubernetes-{{timestamp}}",
           "tags": {
               "OS_Version": "Amazon Linux 2"
           }
@@ -25,17 +25,13 @@
   ],
   "provisioners": [
       {
-          "type": "file",
-          "source": "{{template_dir}}/mnt",
-          "destination": "/tmp/mnt",
-          "pause_before": "5s"
-      },
-      {
         "type": "shell",
         "inline": [
-            "yum -y install vagrant"
-        ],
-        "pause_before": "5s"
+            "sudo apt-get update",
+            "sudo apt -y install virtualbox",
+            "sudo apt -y install vagrant",
+            "git clone https://github.com/mortonprod/gke-consul-tomcat-pipeline"
+        ]
       }
   ]
 }

@@ -62,7 +62,7 @@ provider "aws" {
 # }
 resource "aws_instance" "instance" {
   # ami           = "${data.aws_ami.aws_ebs.id}"
-  ami = "ami-ea4ba68d"
+  ami = "ami-046f2f3839b7794b2"
   instance_type = "t2.micro"
   associate_public_ip_address = true
   # Set default and my own group.
