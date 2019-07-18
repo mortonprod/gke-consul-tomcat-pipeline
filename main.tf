@@ -62,7 +62,7 @@ provider "aws" {
 # }
 resource "aws_instance" "instance" {
   # ami           = "${data.aws_ami.aws_ebs.id}"
-  ami = "ami-046f2f3839b7794b2"
+  ami = "ami-0c7acc4fbb075fa98"
   instance_type = "t2.small"
   associate_public_ip_address = true
   # Set default and my own group.
@@ -73,6 +73,10 @@ resource "aws_instance" "instance" {
     Name = "Vagrant Instance"
   }
   key_name = "aws_personal"
+}
+
+locals {
+  ssh = "ssh -i ~/.ssh/aws_personal.pem ubuntu@${aws_instance.instance.public_dns}"
 }
 
 # resource "aws_default_security_group" "default_security_group" {
