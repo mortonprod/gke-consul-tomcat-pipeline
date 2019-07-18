@@ -30,7 +30,7 @@
             "sudo apt-get update",
             "sudo apt -y install virtualbox",
             "sudo apt -y install vagrant",
-            "git clone https://github.com/mortonprod/gke-consul-tomcat-pipeline"
+            "git clone https://github.com/mortonprod/gke-consul-tomcat-pipeline",
             "cd gke-consul-tomcat-pipeline",
             "git checkout -b feature/deployment-dev  origin/feature/deployment-dev"
         ]
